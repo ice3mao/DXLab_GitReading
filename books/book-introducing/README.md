@@ -28,8 +28,8 @@ $ git config --global alias.st status
 
 -------------------------------------------------
 ### CH5 開始使用Git
+* 5.1 新增、初始 Repository
 
-* 新增、初始 Repository
 $ cd /tmp                  # 切換至 /tmp 目錄
 
 $ mkdir git-practice       # 建立 git-practice 目錄
