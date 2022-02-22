@@ -6,16 +6,21 @@ CH4 設定Git
 開啟Terminal後輸入使用者
 
 $ git config --global user.name "Kim Lin"
+
 $ git config --global user.email "Kim_lin@wistron.com"
 
 輸入完成之後，可以再檢視一下目前的設定：
 
 $ git config --list
+
 user.name=Kim Lin
+
 user.email=Kim_lin@wistron.com
 
 Git縮寫: alias
 
 $ git config --global alias.co checkout
+
 $ git config --global alias.br branch
+
 $ git config --global alias.st status
