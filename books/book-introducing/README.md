@@ -83,6 +83,14 @@ $ git commit -m "init commit"
 
 在後面加上的 -m "init commit" 是指要要說明「你在這次的 Commit 做了什麼事」
 
+當完成了這個動作後，對 Git 來說就是「把暫存區的東西存放到儲存庫（Repository）裡」
+
+* 5.3 工作區、暫存區與儲存庫
+
+![image](https://user-images.githubusercontent.com/43734850/155100469-4d23d6b9-e729-4f39-acd4-dc0d9e9974ff.png)
+
+
+
 
 
 
