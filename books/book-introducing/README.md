@@ -56,6 +56,16 @@ $ echo "hello, git" > welcome.html
 
 ![image](https://user-images.githubusercontent.com/43734850/155096075-add00e54-2615-40fe-a386-1ce9272c609a.png)
 
+目前這個檔案是 Untracked，接下來就是要把 welcome.html 這個檔案交給 Git，讓 Git 開始「追蹤」它，使用的指令是 git add 後面加上檔案名稱：
+
+$ git add welcome.html
+
+就可以把這個檔案交給 Git 來管控了。再次使用 git status 指令看一下目前的狀態：
+
+![image](https://user-images.githubusercontent.com/43734850/155096875-ee8f799f-f002-4972-ac12-97df287c0f47.png)
+
+剛才那個檔案從 Untracked 變成 new file 狀態了。這個表示這個檔案已經被安置到暫存區（Staging Area），等待稍後跟其它檔案一起被存到儲存庫裡。
+
 
 
 
