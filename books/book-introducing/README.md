@@ -41,7 +41,12 @@ $ git init                 # 初始化這個目錄，讓 Git 對這個目錄開�
 Initialized empty Git repository in /private/tmp/git-practice/.git/
 
 ![image](https://user-images.githubusercontent.com/43734850/155094835-4dcc8c5a-bcfb-4691-98f2-db9406f0519e.png)
+
 全部就是只靠那個 .git 目錄在做事而已，所以如果這個目錄不想被版控，或是只想給客戶不含版控紀錄的內容的話，只要把那個 .git 目錄移除，Git 就對這個目錄失去控制權了。
 
 * 5.2 把檔案交給 Git 控管
+
+$ git status
+![image](https://user-images.githubusercontent.com/43734850/155095437-c31d3570-6926-4c99-b9fc-cdd9449a83ad.png)
+
 
