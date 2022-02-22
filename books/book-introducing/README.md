@@ -58,6 +58,8 @@ $ echo "hello, git" > welcome.html
 
 目前這個檔案是 Untracked，接下來就是要把 welcome.html 這個檔案交給 Git，讓 Git 開始「追蹤」它，使用的指令是 git add 後面加上檔案名稱：
 
+*把檔案一道暫存區→ git add
+
 $ git add welcome.html
 
 就可以把這個檔案交給 Git 來管控了。再次使用 git status 指令看一下目前的狀態：
@@ -72,6 +74,16 @@ $ git add welcome.html
     git add . →  這個指令會把目前當下這個目錄及旗下子目錄，但其他外面的就不管
     
     git add --all → 指令就沒這個問題，這個專案裡所有的異動都會被加至暫存區
+    
+*把檔案一道儲存區→ git commit
+
+$ git commit -m "init commit"
+ 
+ ![image](https://user-images.githubusercontent.com/43734850/155099778-a648d752-0fff-4d57-8338-bb2eb13e69dd.png)
+
+在後面加上的 -m "init commit" 是指要要說明「你在這次的 Commit 做了什麼事」
+
+
 
 
 
