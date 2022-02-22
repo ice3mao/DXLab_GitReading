@@ -89,6 +89,12 @@ $ git commit -m "init commit"
 
 ![image](https://user-images.githubusercontent.com/43734850/155100469-4d23d6b9-e729-4f39-acd4-dc0d9e9974ff.png)
 
+1.git add 指令把檔案從工作目錄移至暫存區（或索引）。
+
+2.git commit 指令把暫存區的內容移至儲存庫。
+
+請記得，要執行 Commit 指令，也就是要存放到 Repository 才算是完成整個流程喔。
+
 
 
 
