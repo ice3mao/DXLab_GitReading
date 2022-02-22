@@ -66,6 +66,12 @@ $ git add welcome.html
 
 剛才那個檔案從 Untracked 變成 new file 狀態了。這個表示這個檔案已經被安置到暫存區（Staging Area），等待稍後跟其它檔案一起被存到儲存庫裡。
 
+*冷知識
+  * add ./ add --all 的差別
+    
+    git add . →  這個指令會把目前當下這個目錄及旗下子目錄，但其他外面的就不管
+    
+    git add --all → 指令就沒這個問題，這個專案裡所有的異動都會被加至暫存區
 
 
 
