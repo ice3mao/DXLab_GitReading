@@ -47,6 +47,16 @@ Initialized empty Git repository in /private/tmp/git-practice/.git/
 * 5.2 把檔案交給 Git 控管
 
 $ git status
+
 ![image](https://user-images.githubusercontent.com/43734850/155095437-c31d3570-6926-4c99-b9fc-cdd9449a83ad.png)
+
+因為現在還沒有新增任何東西可以提交，這個目錄裡透過系統指令建立一個內容為 “hello, git” 並命名為 welcome.html 的檔案：
+
+$ echo "hello, git" > welcome.html
+
+![image](https://user-images.githubusercontent.com/43734850/155096075-add00e54-2615-40fe-a386-1ce9272c609a.png)
+
+
+
 
 
