@@ -95,10 +95,80 @@ $ git commit -m "init commit"
 
 請記得，要執行 Commit 指令，也就是要存放到 Repository 才算是完成整個流程喔。
 
+* 5.4 檢視紀錄
 
+$ git log
 
+![image](https://user-images.githubusercontent.com/43734850/155358395-48d4abf4-2e8a-4925-9d23-f4797c062dcc.png)
 
+1. Commit 作者是誰。（人是誰殺的）
 
+2. 什麼時候 Commit 的。（什麼時候殺的）
 
+3. 每次的 Commit 大概做了些什麼事。（怎麼殺的）
 
+*冷知識-5-17 SHA-1詳細介紹
 
+那個看起來像亂碼的是一串git 根據commit的"內容"，由SHA-1生成的隨機驗證字串
+
+SHA-1全名為security hash algorithm, 中文意思大概就是“安全加密演算法”
+
+$ git log --oneline --graph
+
+![image](https://user-images.githubusercontent.com/43734850/155361561-0ed2c69a-8c4f-4a7e-b9c1-da38fd968076.png)
+
+--online還可以搭配不同條件搜尋
+
+$ git log --oneline --author="Kim Lin"  # 找誰commit的
+
+$ git log --oneline --since="9am" --until="12am"  # 找出「今天早上 9 點到 12 點之間所有的 Commit」
+
+* 5.5 【狀況題】如何在 Git 裡刪除檔案或變更檔名？
+
+# 刪除檔案 rm and git rm的差別
+
+$ rm welcome.html 
+
+$ git add welcome.html
+
+如果只有rm刪除完檔案，還需要git add這次的「修改」加到暫存區
+
+$ git rm welcome.html
+
+而git rm狀態是 deleted，而且已被加至暫存區，所以接下來就可以進行 Commit 了
+
+# 加上 –cached 參數
+
+$ git rm welcome.html --cached
+
+如果只是「我不是真的想把這個檔案刪掉，只是不想讓這個檔案再被 Git 控管了」的話，可以加上 --cached 參數
+
+狀態從原本已經在 Git 目錄裡的 tracked 變成 Untracked
+
+![image](https://user-images.githubusercontent.com/43734850/155366883-5cce1f36-4bb1-403a-887e-7559e019fad6.png)
+
+# 變更檔名
+
+$ mv hello.html world.html  # 把 hello.html 改成 world.html
+
+但還是要git add把這次的「修改」加到暫存區
+
+$ git mv hello.html world.html # 這樣就減少了一個步驟
+
+* 5.6 【狀況題】修改 Commit 紀錄
+
+# 使用 --amend 參數來修改最後一次的 Commit
+
+![image](https://user-images.githubusercontent.com/43734850/155369637-03848477-50f5-4f1d-9ff0-1e58f6b2c16c.png)
+
+最後一次commit的內容有點糟糕，只要直接在 Commit 指令後面加上 --amend 參數即可修改
+
+$ git commit --amend -m "Welcome To Facebook"
+
+![image](https://user-images.githubusercontent.com/43734850/155369969-47544732-1161-4e54-82ac-6101d61a9e3d.png)
+
+* 5.7 【狀況題】追加檔案到最近一次的 Commit
+
+$ git commit --amend --no-edit
+
+--no-edit 參數的意思是指「我不要編輯 Commit 訊息」，所以就不會跳出 Vim 編輯器的視窗。
