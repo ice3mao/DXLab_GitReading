@@ -1,7 +1,7 @@
-### CH3 常用命令指令
+## CH3 常用命令指令
 ![image](https://user-images.githubusercontent.com/43734850/155084532-3696a5cf-52b8-4ce4-afba-54708c37f1e8.png)
 -------------------------------------------------
-### CH4 設定Git
+## CH4 設定Git
 
 開始使用Git首先要做的第一件事（應該也只要做一次就好），就是設定使用者的 Email 信箱以及使用者名稱
 開啟Terminal後輸入使用者
@@ -27,7 +27,7 @@ $ git config --global alias.br branch
 $ git config --global alias.st status
 
 -------------------------------------------------
-### CH5 開始使用Git
+## CH5 開始使用Git
 * 5.1 新增、初始 Repository
 
 $ cd /tmp                  # 切換至 /tmp 目錄
@@ -125,7 +125,7 @@ $ git log --oneline --since="9am" --until="12am"  # 找出「今天早上 9 點�
 
 * 5.5 【狀況題】如何在 Git 裡刪除檔案或變更檔名？
 
-# 刪除檔案 rm and git rm的差別
+##### 刪除檔案 rm and git rm的差別
 
 $ rm welcome.html 
 
@@ -137,7 +137,7 @@ $ git rm welcome.html
 
 而git rm狀態是 deleted，而且已被加至暫存區，所以接下來就可以進行 Commit 了
 
-# 加上 –cached 參數
+##### 加上 –cached 參數
 
 $ git rm welcome.html --cached
 
@@ -147,7 +147,7 @@ $ git rm welcome.html --cached
 
 ![image](https://user-images.githubusercontent.com/43734850/155366883-5cce1f36-4bb1-403a-887e-7559e019fad6.png)
 
-# 變更檔名
+##### 變更檔名
 
 $ mv hello.html world.html  # 把 hello.html 改成 world.html
 
@@ -157,7 +157,7 @@ $ git mv hello.html world.html # 這樣就減少了一個步驟
 
 * 5.6 【狀況題】修改 Commit 紀錄
 
-# 使用 --amend 參數來修改最後一次的 Commit
+##### 使用 --amend 參數來修改最後一次的 Commit
 
 ![image](https://user-images.githubusercontent.com/43734850/155369637-03848477-50f5-4f1d-9ff0-1e58f6b2c16c.png)
 
@@ -172,3 +172,88 @@ $ git commit --amend -m "Welcome To Facebook"
 $ git commit --amend --no-edit
 
 --no-edit 參數的意思是指「我不要編輯 Commit 訊息」，所以就不會跳出 Vim 編輯器的視窗。
+
+
+* 5.8 【狀況題】新增目錄？
+
+$ mkdir images
+
+*注意！空的目錄無法被提交！
+
+請記得一件很重要的觀念，就是 Git 在計算、產生物件的時候，是根據「檔案的內容」去做計算的，所以光是新增一個目錄，Git 是沒辦法處理它的。
+
+只要在那個空目錄裡隨便放一個檔案就行了。慣例上可以放一個名為 “.keep” 或 “.gitkeep” 的空檔案，讓 Git 能「感應」到這個目錄的存在：
+
+$ touch images/.keep
+
+![image](https://user-images.githubusercontent.com/43734850/155556543-ab6b8977-d95d-4950-90e2-fba6f9c26b2e.png)
+
+* 5.9 【狀況題】有些檔案我不想放在 Git 裡面…
+
+*有些比較機密的檔案不想放在 Git 裡面一起備份，例如資料庫的存取密碼或是 AWS 伺服器的存取金鑰…
+
+只要在專案目錄裡放一個 .gitignore 檔案，並且設定想要忽略的規則就行了
+
+$ touch .gitignore
+
+然後編輯這個檔案的內容：
+
+#檔案名稱 .gitignore
+
+#忽略 secret.yml 檔案
+
+secret.yml
+
+#忽略 config 目錄下的 database.yml 檔案
+
+config/database.yml
+
+#忽略所有 db 目錄下附檔名是 .sqlite3 的檔案
+
+/db/*.sqlite3
+
+#忽略所有附檔名是 .tmp 的檔案
+
+*.tmp
+
+#當然你要忽略自己也可以，只是通常不會這麼做
+
+#.gitignore
+
+只要 .gitignore 這個檔案存在，即使這個檔案沒被 Commit 或是沒被 Push 上 Git Server 就會有效果。但這個檔案會建議 Commit 進專案並且推上 Git Server，這樣一來整個專案一起開發的人可以共享相同的設定。
+
+GitHub 上有整理了一份各種程式語言常見的 .gitignore 檔案。
+
+網址： https://github.com/github/gitignore
+
+##### 可以忽略這個忽略嗎？
+
+$ git add -f 檔案名稱
+
+只要在 git add 的時候再加上 -f 的參數,就可以無視規則，強迫闖關。
+
+##### 咦？怎麼沒效果？
+
+.gitignore 檔案設定的規則，只對在規則設定之後的有效，那些已經存在的檔案就像既得利益者一樣，這些規則是對他們沒有效果的。
+
+如果想套用 .gitignore 的規則，就必須先使用 git rm --cached 指令把這些既得利益者請出 Git，移出 Git 控管之後，它就會開始會被忽略了。
+
+##### Git 教學： 該如何清除忽略的檔案？
+
+如果想要一口氣清除那些已經被忽略的檔案，可以使用 git clean 指令並配合 -X 參數
+
+$ git clean -fX
+
+那個額外加上的 -f 參數是指強制刪除的意思，這樣一來就可清除那些被忽略的檔案。
+
+* 5.10 【狀況題】檢視特定檔案的 Commit 紀錄
+
+如果只想檢視單一檔案的紀錄，只要在 git log 後面接上那個檔名
+
+![image](https://user-images.githubusercontent.com/43734850/155563776-333dd66c-97f5-49b5-9780-bf233f5759e7.png)
+
+如果想看這個檔案到底每次的 Commit 做了什麼修改，可以再給它一個 -p 參數：
+
+![image](https://user-images.githubusercontent.com/43734850/155564053-6f4c3737-7c16-4cf9-819b-3540cb7d81e6.png)
+
+*小提示-前面的加號 + 表示是新增的內容，如果是減號 - 表示原本的內容被刪除
