@@ -2,8 +2,13 @@
 Book:為你自己學Git
 * Git Book網頁版: https://gitbook.tw/
 
+* 電子書PDF下載: https://wistron-my.sharepoint.com/:b:/r/personal/kim_lin_wistron_com/Documents/learn-git.pdf?csf=1&web=1&e=rytxBX
+
 Git安裝:
 https://git-scm.com/download/win  
+
+Sourectree安裝:
+https://www.sourcetreeapp.com/
   
 -------------------------------------------------
 目錄結構
